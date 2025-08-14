@@ -13,13 +13,10 @@ RUN pip install --no-cache-dir gunicorn
 
 COPY . .
 
-# Создаем директорию для статических файлов
 RUN mkdir -p staticfiles
 
-# Собираем статические файлы
 RUN python manage.py collectstatic --noinput --verbosity=0
 
-# Проверяем, что файлы собраны
 RUN ls -la staticfiles/
 RUN ls -la staticfiles/menu/
 
